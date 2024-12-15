@@ -1,20 +1,29 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ProductCreateComponent } from '../product-create/product-create.component';
 
-import { ProductEditComponent } from './product-edit.component';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ProductService } from "../services/product.service";
 
 describe('ProductEditComponent', () => {
-  let component: ProductEditComponent;
-  let fixture: ComponentFixture<ProductEditComponent>;
+  let component: ProductCreateComponent;
+  let fixture: ComponentFixture<ProductCreateComponent>;
+  let router: Router;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ProductEditComponent]
-    })
-    .compileComponents();
+    const productServiceSpy = jasmine.createSpyObj('ProductService', ['updateProduct']);
 
-    fixture = TestBed.createComponent(ProductEditComponent);
+    await TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule, RouterTestingModule],
+      providers: [{ provide: ProductService, useValue: productServiceSpy }]
+    })
+      .compileComponents();
+
+    fixture = TestBed.createComponent(ProductCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    router = TestBed.inject(Router);
   });
 
   it('should create', () => {
