@@ -1,1 +1,62 @@
 <p>product-list works!</p>
+<div>
+  <section>
+    <div>
+      <input 
+      class="search-input" 
+      type="text" 
+      placeholder="Search..." 
+      [(ngModel)]="searchTerm"/>
+    </div>
+    <div>
+      <a routerLink="/products/create" class="nav-link active">Agregar</a>
+    </div>
+  </section>
+  <section>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Logo</th>
+          <th scope="col">Nombre del producto</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Fecha Inicio</th>
+          <th scope="col">Fecha Fin</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr scope="row" *ngFor="let product of filteredProducts">
+          <th>{{product.logo}}</th>
+          <th>{{product.name}}</th>
+          <th>{{product.description}}</th>
+          <th>{{product.date_release }}</th>
+          <th>{{product.date_revision }}</th>
+          <th>
+            <div class="button-section">
+              <div class="button-element">
+                <a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a>
+              </div>
+              <div class="button-element">
+                <button class="btn-cancel" (click)="deleteProduct(product.id, product.name)">Delete</button>
+              </div>
+            </div>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="table-footer">
+    <div class="results-products">
+      <span>{{filteredProducts.length}} Resultados</span>
+    </div>
+    <div class="number-products">
+      <label for="limitSelect">Mostrar:</label>
+      <select id="limitSelect" [(ngModel)]="limit">
+        <option [value]="5">5</option>
+        <option [value]="10">10</option>
+        <option [value]="20">20</option>
+      </select>
+      <span> elementos</span>
+    </div>
+  </section>
+</div>
