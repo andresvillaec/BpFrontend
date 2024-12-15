@@ -1,1 +1,90 @@
+$color_1: #0f265c;
+$font-family_1: Helvetica, Arial, Sans, Sans-serif;
+$background-color_1: #ffdd00;
+$background-color_2: #ffc500;
+$background-color_3: #e9ecf3;
+
 /* You can add global styles to this file, and also import other style files */
+/* Base Container Styles */
+/* Action Buttons */
+/* Responsive breakpoints for container sizes */
+body {
+	font-family: $font-family_1;
+	margin: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1200px;
+}
+.button-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	margin-top: 20px;
+	padding-top: 50px;
+	text-align: center;
+}
+.button-element {
+	flex: 1;
+	text-align: center;
+}
+button {
+	background-color: $background-color_1;
+	color: $color_1;
+	border: none;
+	padding: 15px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: medium;
+	&:hover {
+		background-color: $background-color_2;
+	}
+}
+.nav-link {
+	background-color: $background-color_1;
+	color: $color_1;
+	border: none;
+	padding: 15px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: medium;
+	text-decoration: none;
+}
+button.btn-cancel {
+	background-color: $background-color_3;
+	color: $color_1;
+}
+@media (max-width: 1200px) {
+	.container {
+		max-width: 960px;
+	}
+}
+@media (max-width: 992px) {
+	.container {
+		max-width: 720px;
+	}
+}
+@media (max-width: 768px) {
+	.container {
+		max-width: 540px;
+	}
+}
+@media (max-width: 576px) {
+	.container {
+		max-width: 100%;
+	}
+}
