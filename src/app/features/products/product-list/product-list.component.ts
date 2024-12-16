@@ -6,12 +6,11 @@ import { DefaultDatePipe } from "../../../shared/pipes/default-date.pipe";
 import { SearchListService } from "../../../shared/services/search-list.service";
 import { ProductService } from "../services/product.service";
 import { RouterLink, ActivatedRoute } from "@angular/router";
-import { NgOptimizedImage } from '@angular/common';
 import { ConfirmationPopupComponent } from "../../../shared/components/confirmation-popup/confirmation-popup.component";
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule, DefaultDatePipe, FormsModule, RouterLink, ConfirmationPopupComponent, NgOptimizedImage],
+  imports: [CommonModule, DefaultDatePipe, FormsModule, RouterLink, ConfirmationPopupComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
