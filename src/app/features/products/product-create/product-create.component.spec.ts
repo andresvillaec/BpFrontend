@@ -28,4 +28,15 @@ describe('ProductCreateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call ngInit', () => {
+    const spyinitializeForm = spyOn(component, 'initializeForm');
+    component.ngOnInit();
+    expect(spyinitializeForm).toHaveBeenCalled();
+  });
+
+  it('should call initializeForm to create productForm', () => {
+    component.initializeForm();
+    expect(component.productForm).toBeDefined();
+  });
 });
