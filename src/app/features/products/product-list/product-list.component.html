@@ -4,7 +4,7 @@
       <input 
       class="search-input" 
       type="text" 
-      placeholder="Search..." 
+      placeholder="Buscar..." 
       [(ngModel)]="searchTerm"/>
     </div>
     <div>
@@ -27,7 +27,7 @@
       <tbody>
         <tr scope="row" *ngFor="let product of filteredProducts">
           <th>{{product.id}}</th>
-          <th>{{product.logo}}</th>
+          <th><img src="{{product.logo}}" onerror="this.src='https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg'" alt="Product" class="product-logo"/></th>
           <th>{{product.name}}</th>
           <th>{{product.description}}</th>
           <th>{{product.date_release | defaultDate}}</th>
@@ -38,7 +38,7 @@
                 <a routerLink="/products/{{product.id}}" class="nav-link active">Editar</a>
               </div>
               <div class="button-element">
-                <button class="btn-cancel" (click)="deleteProduct(product.id, product.name)">Delete</button>
+                <button class="btn-cancel" (click)="deleteProduct(product.id, product.name)">Eliminar</button>
               </div>
             </div>
           </th>
