@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from "../services/product.service";
-import { Product } from "../models/product.model"; 4
+import { Product } from "../models/product.model";
+import { ProductFormComponent } from "../forms/product-form/product-form.component";
 
 @Component({
   selector: 'app-product-edit',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ProductFormComponent],
   templateUrl: './product-edit.component.html',
   styleUrl: './product-edit.component.scss'
 })
@@ -89,6 +88,9 @@ export class ProductEditComponent {
         }
       });
     }
+  }
+
+  resetForm(): void {
   }
 
   onSubmit(): void {

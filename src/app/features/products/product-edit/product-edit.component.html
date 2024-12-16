@@ -1,49 +1,10 @@
 <div class="form-wrapper">
   <h1>Editar producto</h1>
   <hr>
-  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <div class="form-container">
-      <div class="form-group">
-        <label for="id">ID:</label>
-        <input type="text" id="id" formControlName="id" />
-        <div *ngIf="isFieldInvalid('id')" class="error-message">Id es requerido (3-10 caracteres).</div>
-      </div>
-
-      <div class="form-group">
-        <label for="name" class="form-control">Nombre:</label>
-        <input type="text" id="name" formControlName="name" />
-        <div *ngIf="isFieldInvalid('name')" class="error-message">Nombre es requerido (5-100 caracteres).</div>
-      </div>
-  
-      <div class="form-group">
-        <label for="description" class="form-control">Descripcion:</label>
-        <input type="text" id="name" formControlName="description" />
-        <div *ngIf="isFieldInvalid('description')" class="error-message">Descripcion es requerido (3-10 caracteres).</div>
-      </div>
-
-      <div class="form-group">
-        <label for="logo" class="form-control">Logo:</label>
-        <input type="text" id="logo" formControlName="logo" />
-        <div *ngIf="isFieldInvalid('logo')" class="error-message">Logo es requerido.</div>
-      </div>
-
-      <div class="form-group">
-        <label for="date_release" class="form-control">Fecha de entrega:</label>
-        <input type="date" id="date_release" formControlName="date_release" />
-        <div *ngIf="isFieldInvalid('date_release')" class="error-message">Fecha de entrega invalida.</div>
-      </div>
-  
-      <div class="form-group">
-        <label for="date_revision" class="form-control">Fecha de revision:</label>
-        <input type="date" id="date_revision" formControlName="date_revision" />
-        <div *ngIf="isFieldInvalid('date_revision')" class="error-message">Fecha de entrega invalida.</div>
-      </div>
-    </div>
-    <div class="button-section">
-      <div class="button-element">
-        <button type="submit">Guardar</button>
-      </div>
-    </div>
-
-  </form>
+  <app-product-form
+      [productForm]="productForm"
+      [isEditMode]="true"
+      (formSubmit)="onSubmit()"
+      (formReset)="resetForm()"
+    ></app-product-form>
 </div>

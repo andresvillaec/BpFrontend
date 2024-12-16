@@ -10,10 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./product-form.component.scss']
 })
 export class ProductFormComponent {
-  @Input() productForm!: FormGroup; // Input for the reactive form
-  @Input() isEditMode: boolean = false; // Allow configuring read-only ID field
-  @Output() formSubmit = new EventEmitter<void>(); // Form submit event output
-  @Output() formReset = new EventEmitter<void>(); // Form reset event output
+  @Input() productForm!: FormGroup;
+  @Input() isEditMode: boolean = false;
+  @Output() formSubmit = new EventEmitter<void>();
+  @Output() formReset = new EventEmitter<void>();
+
 
   // Helper for field validation CSS
   isFieldInvalid(field: string): boolean {

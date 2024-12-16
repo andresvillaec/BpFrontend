@@ -2,7 +2,7 @@
   <div class="form-container">
     <div class="form-group">
       <label for="id">ID:</label>
-      <input type="text" id="id" formControlName="id" />
+      <input type="text" id="id" formControlName="id"  [readonly]="isEditMode"/>
       <div *ngIf="isFieldInvalid('id')" class="error-message">Id es requerido (3-10 caracteres).</div>
     </div>
 
@@ -37,11 +37,11 @@
     </div>
   </div>
   <div class="button-section">
-    <div class="button-element">
+    <div *ngIf="!isEditMode" class="button-element">
       <button type="button" class="btn-cancel" (click)="resetForm()">Reiniciar</button>
     </div>
     <div class="button-element">
-      <button type="submit">Enviar</button>
+      <button type="submit">Guardar</button>
     </div>
   </div>
 </form>
