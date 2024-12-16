@@ -1,26 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { ProductService } from "../services/product.service";
 import { Product } from "../models/product.model";
-import { ReactiveFormsModule } from '@angular/forms';
+import { ProductFormComponent } from "../forms/product-form/product-form.component";
 
 @Component({
   selector: 'app-product-create',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ProductFormComponent],
   templateUrl: './product-create.component.html',
   styleUrl: './product-create.component.scss'
 })
 export class ProductCreateComponent implements OnInit {
-  productForm!: FormGroup; // Angular form group
-  today = new Date(); // To compare the release date
+  productForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private router: Router) {
-  }
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -36,10 +34,6 @@ export class ProductCreateComponent implements OnInit {
       date_release: ['', [Validators.required, this.dateReleaseValidator()]], // Custom validator for > today
       date_revision: ['', [Validators.required, this.dateRevisionValidator()]] // Custom validator for +1 year
     });
-  }
-
-  isFieldInvalid(field: string): boolean {
-    return !!(this.productForm.get(field)?.invalid && this.productForm.get(field)?.touched);
   }
 
   dateReleaseValidator() {
@@ -75,11 +69,11 @@ export class ProductCreateComponent implements OnInit {
       const newProduct: Product = this.productForm.value;
       this.productService.createProduct(newProduct).subscribe({
         next: () => {
-          this.router.navigate(['/products']);  // Redirect on success
+          this.router.navigate(['/products']); // Redirect on success
         },
         error: (err) => {
           console.error('Error creating product:', err);
-          alert('There was an error creating the product.');  // Handle error
+          alert('There was an error creating the product.'); // Handle error
         }
       });
     } else {
