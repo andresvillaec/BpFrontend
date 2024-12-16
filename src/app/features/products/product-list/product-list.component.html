@@ -28,8 +28,8 @@
           <th>{{product.logo}}</th>
           <th>{{product.name}}</th>
           <th>{{product.description}}</th>
-          <th>{{product.date_release }}</th>
-          <th>{{product.date_revision }}</th>
+          <th>{{product.date_release | defaultDate}}</th>
+          <th>{{product.date_revision | defaultDate}}</th>
           <th>
             <div class="button-section">
               <div class="button-element">

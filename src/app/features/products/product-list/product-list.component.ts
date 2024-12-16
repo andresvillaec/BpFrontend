@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from "../models/product.model";
 import { FormsModule } from '@angular/forms';
+import { DefaultDatePipe } from "../../../shared/pipes/default-date.pipe";
 import { SearchListService } from "../../../shared/services/search-list.service";
 import { ProductService } from "../services/product.service";
 import { RouterLink, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, DefaultDatePipe],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
