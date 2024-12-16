@@ -105,7 +105,6 @@ export class ProductEditComponent {
       // Call the service to update the product
       this.productService.updateProduct(this.productId, updatedProduct).subscribe({
         next: () => {
-          alert('Product updated successfully!');
           this.router.navigate(['/']);  // Redirect to the product list or another relevant page
         },
         error: (err) => {

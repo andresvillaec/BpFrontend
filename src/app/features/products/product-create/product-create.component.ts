@@ -75,7 +75,6 @@ export class ProductCreateComponent implements OnInit {
       const newProduct: Product = this.productForm.value;
       this.productService.createProduct(newProduct).subscribe({
         next: () => {
-          alert('Product created successfully!');
           this.router.navigate(['/products']);  // Redirect on success
         },
         error: (err) => {

@@ -6,10 +6,11 @@ import { DefaultDatePipe } from "../../../shared/pipes/default-date.pipe";
 import { SearchListService } from "../../../shared/services/search-list.service";
 import { ProductService } from "../services/product.service";
 import { RouterLink, ActivatedRoute } from "@angular/router";
+import { ConfirmationPopupComponent } from "../../../shared/components/confirmation-popup/confirmation-popup.component";
 
 @Component({
   selector: 'app-product-list',
-  imports: [CommonModule, FormsModule, RouterLink, DefaultDatePipe],
+  imports: [CommonModule, DefaultDatePipe, FormsModule, RouterLink, ConfirmationPopupComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
@@ -46,6 +47,9 @@ export class ProductListComponent implements OnInit {
 
   // Trigger delete flow - show the delete confirmation popup
   deleteProduct(productId: string, productName: string): void {
+    this.productIdToDelete = productId;
+    this.productNameToDelete = productName;
+    this.showDeletePopup = true;
   }
 
   // Confirm the product deletion
@@ -53,7 +57,6 @@ export class ProductListComponent implements OnInit {
     if (this.productIdToDelete) {
       this.productService.deleteProduct(this.productIdToDelete).subscribe({
         next: () => {
-          alert('Product deleted successfully!');
           this.showDeletePopup = false;  // Hide the popup after deletion
           this.loadProducts();  // Reload the product list after deletion
         },

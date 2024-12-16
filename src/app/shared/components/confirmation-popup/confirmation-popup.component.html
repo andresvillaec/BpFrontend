@@ -1,0 +1,15 @@
+<div class="popup-overlay">
+  <div class="popup-content">
+    <h3>Eliminar product</h3>
+    <p>¿Estas seguro de eliminar el producto {{ productName }}?</p>
+    <div class="popup-buttons button-section">
+      <hr>
+      <div class="button-element">
+        <button (click)="onCancel()" class="btn-cancel">Cancelar</button>
+      </div>
+      <div class="button-element">
+        <button (click)="onConfirm()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

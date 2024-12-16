@@ -1,0 +1,22 @@
+$background-color_1: rgba(0, 0, 0, 0.7);
+$background-color_2: #fff;
+
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: $background-color_1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+.popup-content {
+	background-color: $background-color_2;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+	min-width: 300px;
+}

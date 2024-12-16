@@ -59,3 +59,9 @@
     </div>
   </section>
 </div>
+
+<app-confirmation-popup *ngIf="showDeletePopup"
+  [productName]="productNameToDelete" 
+  (confirmDelete)="confirmDelete()"
+  (cancelDelete)="cancelDelete()">
+</app-confirmation-popup>
