@@ -41,6 +41,7 @@ export class ProductListComponent implements OnInit {
       error: (error) => {
         console.error('There was an error!', error);
         this.errorMessage = 'Error loading products';  // Handle errors
+        alert('Error loading products, server is down');
       }
     });
   }
