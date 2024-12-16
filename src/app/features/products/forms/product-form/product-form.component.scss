@@ -6,109 +6,94 @@ $border-color_1: #007bff;
 $border-color_2: #999;
 
 .form-wrapper {
-	max-width: 700px;
-	margin: 40px auto;
-	padding: 20px;
-	background-color: $background-color_1;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 15px;
+  background-color: $background-color_1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 h1 {
-	text-align: center;
-	font-size: 24px;
-	color: $color_1;
-	margin-bottom: 20px;
+  text-align: center;
+  font-size: 22px;
+  color: $color_1;
+  margin-bottom: 15px;
 }
 .form-container {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 15px;
 }
 .form-group {
-	flex: 0 0 48%;
-	display: flex;
-	flex-direction: column;
-	padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 10px;
 }
 label {
-	font-weight: bold;
-	display: block;
-	margin-bottom: 3px;
-	color: $color_1;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: $color_1;
 }
-input {
-	padding: 10px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-top: 5px;
-	outline: none;
+input, textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  outline: none;
 }
-input[readonly]{
+input[readonly] {
   background-color: lightgrey;
 }
 textarea {
-	padding: 10px;
-	font-size: 16px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-top: 5px;
-	outline: none;
-	min-height: 80px;
-	resize: vertical;
-	&:focus {
-		border-color: $border-color_1;
-		box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
-	}
-	&:hover {
-		border-color: $border-color_2;
-	}
+  min-height: 80px;
+  resize: vertical;
 }
-input[type="text"] {
-	&:focus {
-		border-color: $border-color_1;
-		box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
-	}
-	&:hover {
-		border-color: $border-color_2;
-	}
-}
-input[type="date"] {
-	&:focus {
-		border-color: $border-color_1;
-		box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
-	}
-	&:hover {
-		border-color: $border-color_2;
-	}
+input[type="text"],
+input[type="date"],
+textarea {
+  &:focus {
+    border-color: $border-color_1;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
+  }
+  &:hover {
+    border-color: $border-color_2;
+  }
 }
 .error-message {
-	color: $color_2;
-	font-size: 14px;
-	margin-top: 5px;
+  color: $color_2;
+  font-size: 12px;
+  margin-top: 5px;
 }
 button {
-	&:disabled {
-		background-color: $background-color_2;
-		cursor: not-allowed;
-	}
+  font-size: 14px;
+  &:disabled {
+    background-color: $background-color_2;
+    cursor: not-allowed;
+  }
 }
-@media (max-width: 768px) {
-	.form-wrapper {
-		padding: 15px;
-	}
-	h1 {
-		font-size: 22px;
-	}
-	input {
-		font-size: 14px;
-	}
-	textarea {
-		font-size: 14px;
-	}
-	button {
-		font-size: 14px;
-	}
+
+@media (min-width: 768px) {
+  .form-wrapper {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  input,
+  textarea {
+    font-size: 16px;
+  }
+  button {
+    font-size: 16px;
+  }
+  .form-group {
+    flex: 0 0 48%;
+    padding-bottom: 15px;
+  }
 }

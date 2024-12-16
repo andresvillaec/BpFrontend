@@ -3,175 +3,141 @@ $background-color_2: #f8f9fa;
 $background-color_3: #f2f2f2;
 $background-color_4: #f9f9f9;
 
-div {
-	margin: 20px;
-}
 section {
-	margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
+
 .search-input {
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 16px;
-	box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
+
 .button-section {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
+
 .nav-link {
-	&:hover {
-		background-color: $background-color_1;
-	}
+  &:hover {
+    background-color: $background-color_1;
+  }
 }
+
 .table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+
+  thead {
+    th {
+      background-color: $background-color_2;
+      text-align: left;
+      font-size: 16px;
+      padding: 12px;
+      border: 1px solid #dee2e6;
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $background-color_3;
+      }
+      &:nth-of-type(odd) {
+        background-color: $background-color_4;
+      }
+
+      th {
+        background-color: $background-color_2;
+        font-weight: lighter;
+        border: 1px solid #dee2e6;
+        padding: 12px;
+      }
+    }
+  }
+
+  td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+
+    span {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
 }
-thead {
-	th {
-		background-color: $background-color_2;
-		text-align: left;
-		font-size: 16px;
-		padding: 12px;
-	}
-}
-tbody {
-	th {
-		background-color: $background-color_2;
-		font-weight: lighter;
-	}
-	tr {
-		&:hover {
-			background-color: $background-color_3;
-		}
-	}
-}
-.table-striped {
-	tbody {
-		tr {
-			&:nth-of-type(odd) {
-				background-color: $background-color_4;
-			}
-		}
-	}
-}
-th {
-	padding: 12px;
-	border: 1px solid #dee2e6;
-	text-align: left;
-}
-td {
-	padding: 12px;
-	border: 1px solid #dee2e6;
-	text-align: left;
-	span {
-		display: inline-block;
-		margin-right: 10px;
-	}
-}
+
 .table-footer {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 15px;
-	background-color: $background-color_2;
-	border-top: 1px solid #ddd;
-	margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: $background-color_2;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+
+  .results-products {
+    flex-grow: 1;
+  }
+
+  .number-products {
+    white-space: nowrap;
+  }
 }
-.results-products {
-	flex-grow: 1;
-}
-.number-products {
-	white-space: nowrap;
-}
+
 label {
-	font-size: 14px;
-	margin-right: 5px;
+  font-size: 14px;
+  margin-right: 5px;
 }
+
 select {
-	padding: 5px;
-	font-size: 14px;
-	border-radius: 4px;
-	border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
+
 @media (max-width: 768px) {
-	.table {
-		display: block;
-		width: 100%;
-	}
-	.thead {
-		display: block;
-		width: 100%;
-	}
-	.tbody {
-		display: block;
-		width: 100%;
-	}
-	th {
-		display: block;
-		width: 100%;
-		position: absolute;
-		left: -9999px;
-		top: -9999px;
-	}
-	td {
-		display: block;
-		width: 100%;
-		position: relative;
-		padding-left: 50%;
-		white-space: pre-wrap;
-		&:before {
-			position: absolute;
-			left: 0;
-			width: fit-content;
-			padding-right: 10px;
-			background-color: $background-color_2;
-			font-weight: bold;
-			border-right: 1px solid #dee2e6;
-		}
-		&:nth-of-type(1) {
-			&:before {
-				content: "ID";
-			}
-		}
-		&:nth-of-type(2) {
-			&:before {
-				content: "Logo";
-			}
-		}
-		&:nth-of-type(3) {
-			&:before {
-				content: "Nombre del producto";
-			}
-		}
-		&:nth-of-type(4) {
-			&:before {
-				content: "Descripción";
-			}
-		}
-		&:nth-of-type(5) {
-			&:before {
-				content: "Fecha Inicio";
-			}
-		}
-		&:nth-of-type(6) {
-			&:before {
-				content: "Fecha Fin";
-			}
-		}
-		&:nth-of-type(7) {
-			&:before {
-				content: "Acciones";
-			}
-		}
-	}
-	.tr {
-		display: block;
-		width: 100%;
-	}
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+
+    thead,
+    tbody,
+    tr {
+      width: 100%;
+    }
+
+    td {
+      display: table-row;
+      width: 100%;
+      position: relative;
+      padding-left: 50%;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 12px;
+        font-weight: bold;
+        background-color: $background-color_2;
+        border-right: 1px solid #dee2e6;
+        white-space: nowrap;
+        content: attr(data-label);
+      }
+    }
+
+    tr {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #dee2e6;
+    }
+  }
 }
