@@ -31,8 +31,8 @@ export class ProductCreateComponent implements OnInit {
       logo: ['', [Validators.required]],
       name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(200)]],
-      date_release: ['', [Validators.required, this.dateReleaseValidator()]], // Custom validator for > today
-      date_revision: ['', [Validators.required, this.dateRevisionValidator()]] // Custom validator for +1 year
+      date_release: ['', [Validators.required, this.dateReleaseValidator()]],
+      date_revision: ['', [Validators.required,]]
     });
   }
 
@@ -52,15 +52,6 @@ export class ProductCreateComponent implements OnInit {
 
       // If selected date is today or a future date (in UTC), it is valid.
       return selectedUTC >= todayUTC ? null : { pastDate: true };
-    };
-  }
-
-  dateRevisionValidator() {
-    return (control: any) => {
-      const selectedDate = new Date(control.value);
-      const releaseDate = new Date(this.productForm?.get('date_release')?.value);
-      const nextYear = releaseDate.setFullYear(releaseDate.getFullYear() + 1);
-      return selectedDate.getTime() === nextYear ? null : { notNextYear: true };
     };
   }
 

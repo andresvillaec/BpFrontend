@@ -29,4 +29,24 @@ describe('ProductEditComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call ngInit', () => {
+    const spyinitializeForm = spyOn(component, 'initializeForm');
+    component.ngOnInit();
+    expect(spyinitializeForm).toHaveBeenCalledOnceWith();
+  });
+
+  it('should call initializeForm to create productForm', () => {
+    component.initializeForm();
+    expect(component.productForm).toBeDefined();
+  });
+
+  it('dateReleaseValidator should invalidate past dates', () => {
+    const pastDate = new Date(2000, 0, 1).toISOString().split('T')[0]; // Use ISO string from date input
+    const control = { value: pastDate };
+
+    const result = component.dateReleaseValidator()(control);
+
+    expect(result).toEqual({ pastDate: true }); // Invalid
+  });
 });

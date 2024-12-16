@@ -32,11 +32,21 @@ describe('ProductCreateComponent', () => {
   it('should call ngInit', () => {
     const spyinitializeForm = spyOn(component, 'initializeForm');
     component.ngOnInit();
-    expect(spyinitializeForm).toHaveBeenCalled();
+    expect(spyinitializeForm).toHaveBeenCalledOnceWith();
   });
 
   it('should call initializeForm to create productForm', () => {
     component.initializeForm();
     expect(component.productForm).toBeDefined();
+  });
+
+  it('dateReleaseValidator should validate correctly for valid dates', () => {
+    const today = new Date();
+    const validDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+    const control = { value: validDate.toISOString().split('T')[0] }; // Use ISO string from date input
+
+    const result = component.dateReleaseValidator()(control);
+
+    expect(result).toBeNull(); // Valid
   });
 });
