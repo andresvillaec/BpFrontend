@@ -38,15 +38,20 @@ export class ProductCreateComponent implements OnInit {
 
   dateReleaseValidator() {
     return (control: any) => {
+      if (!control.value) {
+        return null; // If no value is entered, don't validate.
+      }
+
+      // Parse the selected date from the control value and reset time using UTC.
       const selected = new Date(control.value);
+      const selectedUTC = Date.UTC(selected.getUTCFullYear(), selected.getUTCMonth(), selected.getUTCDate());
 
-      // Reset time to midnight (00:00) on both selected and today's dates to compare just the dates.
+      // Get today's date in UTC and reset time to midnight using UTC.
       const today = new Date();
-      today.setHours(0, 0, 0, 0);     // Set today’s time to 00:00:00 for comparison
-      selected.setHours(0, 0, 0, 0);  // Set the selected time to 00:00:00 for comparison
+      const todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
 
-      // If the selected date is today or a future date, it is valid.
-      return selected >= today ? null : { pastDate: true };
+      // If selected date is today or a future date (in UTC), it is valid.
+      return selectedUTC >= todayUTC ? null : { pastDate: true };
     };
   }
 
@@ -73,7 +78,7 @@ export class ProductCreateComponent implements OnInit {
         },
         error: (err) => {
           console.error('Error creating product:', err);
-          alert('There was an error creating the product.'); // Handle error
+          alert(err.error.message); // Handle error
         }
       });
     } else {

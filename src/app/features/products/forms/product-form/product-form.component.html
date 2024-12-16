@@ -45,3 +45,12 @@
     </div>
   </div>
 </form>
+
+<ng-template #skeleton>
+  <!-- Skeleton Loader for product catalog -->
+  <div *ngSkeletonLoader="let product; let i = index;">
+    <div class="product-image"></div>
+    <div class="product-name"></div>
+    <div class="product-description"></div>
+  </div>
+</ng-template>

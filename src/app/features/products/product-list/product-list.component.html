@@ -15,6 +15,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th scope="col">Id</th>
           <th scope="col">Logo</th>
           <th scope="col">Nombre del producto</th>
           <th scope="col">Descripción</th>
@@ -25,6 +26,7 @@
       </thead>
       <tbody>
         <tr scope="row" *ngFor="let product of filteredProducts">
+          <th>{{product.id}}</th>
           <th>{{product.logo}}</th>
           <th>{{product.name}}</th>
           <th>{{product.description}}</th>
