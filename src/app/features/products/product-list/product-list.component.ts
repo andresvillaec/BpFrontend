@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from "../models/product.model";
 import { FormsModule } from '@angular/forms';
+import { SearchListService } from "../../../shared/services/search-list.service";
 import { ProductService } from "../services/product.service";
 import { RouterLink, ActivatedRoute } from "@angular/router";
 
@@ -21,6 +22,7 @@ export class ProductListComponent implements OnInit {
   showDeletePopup: boolean = false;
 
   constructor(
+    private searchListService: SearchListService,
     private productService: ProductService,
     private route: ActivatedRoute,
   ) { }
@@ -39,9 +41,6 @@ export class ProductListComponent implements OnInit {
         this.errorMessage = 'Error loading products';  // Handle errors
       }
     });
-  }
-
-  addProduct(): void {
   }
 
   // Trigger delete flow - show the delete confirmation popup
@@ -72,6 +71,8 @@ export class ProductListComponent implements OnInit {
 
   // Function to filter products based on search term
   get filteredProducts(): Product[] {
-    return [];
+    return this.searchListService
+      .filterList(this.products, this.searchTerm)
+      .slice(0, this.limit);
   }
 }
